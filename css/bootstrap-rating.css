@@ -1,0 +1,18 @@
+.symbol {
+  display: inline-block;
+  border-radius: 50%;
+  border: 0px double black;
+  width: 10px;
+  height: 10px;
+  padding: 2px;
+}
+
+.symbol-empty {
+  background-color: rgb(224,225,228);
+  padding: 2px;
+}
+
+.symbol-filled {
+  background-color: rgb(254,215,60);
+  padding: 2px;
+}

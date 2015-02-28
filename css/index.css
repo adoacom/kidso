@@ -1,0 +1,91 @@
+#ldiv{
+	display: inline-block;
+}
+#custom-inner {		
+	width: 100%;
+}
+#simple-inner{		
+	width: 100%;
+}
+#mdiv-inner{		
+	width: 100%;
+}
+#rdiv{
+	display: inline-block;
+}
+#maindiv{
+	width:auto;
+	height:100%;
+	margin: auto auto;
+	vertical-align: middle;
+	text-align : center;
+}
+#aboutus{
+	margin: auto auto;
+	vertical-align: middle;
+	text-align : center;
+}
+#search{
+	position: absolute;
+	height:131px;
+	z-index:5;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+#banner{
+	position: absolute;
+	z-index:10;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+#banner1{
+	position: absolute;
+	z-index:10;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+#banner2{
+	position: absolute;
+	z-index:10;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+#banner3{
+	position: absolute;
+	z-index:10;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+#banner4{
+	position: absolute;
+	z-index:10;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+#banner5{
+	position: absolute;
+	z-index:10;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+#banner6{
+	position: absolute;
+	z-index:10;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+#banner7{
+	position: absolute;
+	z-index:10;
+	left: 50%;
+	transform: translate(-50%, 0);
+}
+
+
+div#bodydiv{
+/* 	background-image: url('../images/layout01.jpg'); */
+	background-color: #ffffff;
+}
+div#header{
+	height: 100px;
+}

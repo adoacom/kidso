@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="真正的時尚品味,從來不為大眾,為著的是表現個人性格與特性,增強魅力的必要元素。一雙完美鞋子,提昇全身服裝格調,帶出個性與知性。向來代理高級皮鞋的興洋行深知此理,希望與同好人分享,首次開放黃竹坑陳列室,將搜羅近百個高級男女裝鞋履、手袋及時裝配件品牌以特價發售。特賣日由2014年11月6日至11月9日止,品牌包括近百個百英、美及歐洲品牌款式,當中部份品牌於Harvey Nichols、Twist及Swank Shop有售,更有部份則首次於本港發售。屆時大部份貨品將以低於港幣一千元發售,折扣低至三折。">
+  <meta name="keywords" content="sale, crazy sale, mega sale, outlet, showroom, showroom sale, luxe sale, 男鞋，女鞋，brand, luxury, 中興洋行，actif company, shoe, leather shoe, bag, leather bag, discount, 11月, Nov, 英美, 英, 美, 英國, 美國, 歐美, 皮鞋, 鞋, 高級皮鞋, 時尚, 黃竹坑,  鞋履,  手袋, 袋,  特價, 特賣, Harvey Nichols, Twist, Swank, Swank Shop, Alberto Gozzi, Barleycorn, Bruno Magli, Dell Ga, Freemood, Givenchy, Gold Pfeil, ICEBERG, JOOP, Kenzo, Lascrpa, Loake, Lodi, Moreschi, Ogni Giorni, Porsche Design, Roncato Trolley, Santoni, Stonefly">
+  <meta name="author" content="Firebean Limited">  
+  <title>Luxe Sale</title>
+  <script src="js/jquery-1.10.2.js"></script>
+  <!-- Include Google Maps API (Google Maps API v3 已不需使用 API Key) -->
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <!-- Require jQuery v1.7.0 or newer -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.tinyMap-2.9.9.min.js"></script>  
+</head>
+<style>
+	#map-page, #map-canvas { width: 100%; height: 100%; padding: 0; }
+	body {
+	    background-image: url('images/BG.jpg');
+    	background-color: #cccccc;
+    	margin: 0;
+		padding: 0;
+		font-family: Arial;
+		font-size: 200%;
+	}
+	div{
+    	margin: 0;
+		padding: 0;	
+	}
+	.Menu{
+		background-image: url('images/balckbar.jpg');
+		width: 100%;
+		height: 76px;
+	}
+	img{
+    	margin: 0;
+		padding: 0;		
+	}
+</style>
+
+<script>
+$.fn.scrollView = function () {
+  return this.each(function () {
+    $('html, body').animate({
+      scrollTop: $(this).offset().top
+    }, 1000);
+  });
+}
+
+function goto(obj){
+	var p = $('#'+obj);
+	var position = p.position();
+	event.preventDefault();
+	p.scrollView();
+}
+
+$( document ).ready(function() {
+  // Handler for .ready() called.
+  var p = $("img:first");
+	var W = $(window).width(),H = $(window).height();
+	$('#img1').width(W);  
+	$('#img2').width(W);  
+	$('#img3').width(W);   			
+    $('#btn1').width(W/5);
+    $('#btn2').width(W/5);
+    $('#btn3').width(W/5);
+    $('#btn4').width(W/5);
+    $('#map').width(W);
+    $('#map').height(H);
+	$('#map').tinyMap({
+		'center': ['22.248584', '114.168793'],
+		'zoom': 19,
+		'marker': [
+			{'addr': ['22.249517', '114.168847'], 'id': '科達設計中心23字樓'},	
+	    ]
+});	
+});
+</script>
+<style media="screen">
+.maps{width:auto;height:auto;background:#f0f0f0;color:#000}
+.maps img{max-width:none;height:auto;border:0;-ms-interpolation-mode:bicubic}
+.labels{font-size:12px;background:rgba(22,22,22,0.6);color:#fff;padding:.25em}
+#direction-box{width:100%;height:100%;position:relative}
+#direction-box .maps{height:100%}
+#direction-box #direction-panel{position:absolute;top:0;right:0;width:30%;height:100%;overflow:auto;background:rgba(255,255,255,0.8)}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px),
+@media only screen and (min-width : 321px) and (max-width : 480px),
+@media only screen and (-webkit-device-pixel-ratio: 2),
+       only screen and (-webkit-min-device-pixel-ratio : 1.5),
+       only screen and (min-device-pixel-ratio : 1.5) {
+    .jumbotron{padding:0px;text-align:center}
+    pre{display:none}
+    .section h2,
+    .section h3{text-align:center}
+    #direction-box,.maps{height:240px}
+    #installation pre{display:block}
+}
+</style>
+<body>
+<div id="map" class="maps"></div>
+</body>
+</html>

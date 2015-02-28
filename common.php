@@ -1,0 +1,126 @@
+<?php
+include_once("init.php");
+
+function objectToArray($d) {
+
+	if (is_object($d)) {
+		// Gets the properties of the given object
+		// with get_object_vars function
+		$d = get_object_vars($d);
+	} 
+	if (is_array($d)) {
+		/*
+		* Return array converted to object
+		* Using __FUNCTION__ (Magic constant)
+		* for recursive call
+		*/
+		return array_map(__FUNCTION__, $d);
+	}
+	else {
+		// Return array
+		return $d;
+	}
+}
+	
+function arrayToObject($d) {
+	if (is_array($d)) {
+		/*
+		* Return array converted to object
+		* Using __FUNCTION__ (Magic constant)
+		* for recursive call
+		*/
+		return (object) array_map(__FUNCTION__, $d);
+	}
+	else {
+		// Return object
+		return $d;
+	}
+}
+
+function limit_text( $text, $limit = 1000 ) {
+	if ( strlen ( $text ) < $limit ) {
+		return $text;
+	}
+	$split_words = explode(' ', $text );
+	$out = null;
+	foreach ( $split_words as $word ) {
+		if ( ( strlen( $word ) > $limit ) && $out == null ) {
+			return substr( $word, 0, $limit )."...";
+		}           
+		if (( strlen( $out ) + strlen( $word ) ) > $limit) {
+			return $out . "...";
+		}            
+		$out.=" " . $word;
+	}
+	return $out;
+}
+
+function insertSQL($sql)
+{
+	$db = new DB();
+	return $db->insert("tb_book",$sql);
+}
+
+function updateSQL($sql)
+{
+	print_r($sql);
+	$db = new DB();
+	$where = "id='".$sql['id']."'";
+	return $db->update("tb_book",$sql,$where);
+}
+	
+function selectGroup($group)
+{
+	$db = new DB();
+	$db->table = "tb_book";
+	$groupby = $group;
+	$db->qField = $group;
+	$friend = $db->groupAll("","",$groupby);
+	$resultFriends = array();
+	if($friend){		
+		while($friendObj = $db->nextObject()){
+			$friendJSON = (Object)NULL;
+			switch($group)
+			{
+				case "subject":
+					$friendJSON->subject = $friendObj->subject;
+				break;
+				case "grade":
+					$friendJSON->form = $friendObj->grade;
+				break;
+				case "version":
+					$friendJSON->version = $friendObj->version;
+				break;			
+			}
+			array_push($resultFriends, $friendJSON);
+		}
+		$result["record"] = $resultFriends;
+		$result["result"] = "SUCCESS";
+	}else{
+		$result["result"] = "FAIL";
+	}
+	echo json_encode($result);
+	$db->close();
+}
+
+function getEditor_plugin(){
+	$db = new DB();
+	$db->table = TABLE_EDITOR_PLUGIN;
+	$where = " status <> 0 ";
+	$order = " createdate DESC ";
+	$res = $db->fetchRow($where,$order);
+	if(count($res)){
+		return $res;
+	}
+}
+
+function getAllbooks(){
+	$db = new DB();
+	$db->table = "tb_book";
+	$where = "enabled <> 0";
+	$res = $db->fetchAll($where,"id");
+	if(count($res)){
+		return $res;
+	}
+}
+?>

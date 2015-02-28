@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>KidsO</title>
+    <link rel="icon" type="image/ico" href="favicon.ico"/>
+</head>
+
+<frameset framespacing="0" cols="*" frameborder="0" noresize>
+    <frame src="index_t.php">
+</frameset>
+</html>
