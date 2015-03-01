@@ -2738,3 +2738,37 @@ body .ui-tooltip {
 /*
  SyntaxHighlighter - http://alexgorbatchev.com/SyntaxHighlighter
  */
+
+ /*
+	Fixed Top Menu
+ */
+  body div.headerbody div.color_bar{
+  	display: none;
+  }
+
+ body.fixed_menu div.header_bar{
+ 	display: none;
+ }
+
+  body.fixed_menu div.headerbody{
+  	width: 100%;
+  	position: fixed;
+  	background: #fff;
+  	z-index: 99999;
+  }
+
+  body.fixed_menu div.headerbody div#header_content{
+  	text-align: left;
+    width: 1000px;
+  }
+
+  body.fixed_menu div.headerbody div.color_bar{
+  	display: block;
+  }
+
+ /*
+	Menu : categories Icon
+ */
+ #navcontainer .list_icons img{
+ 	width: 40px;
+ }

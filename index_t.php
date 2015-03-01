@@ -26,7 +26,7 @@
 	<script src="//code.jquery.com/jquery-1.10.2.js"></script>	
 	<script src="js/bootstrap.min.js"></script>
 <!-- 	<script src="js/jquery.easydropdown.js"></script> -->
-	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
 	<!-- Modernizr -->
@@ -69,7 +69,19 @@
 		  		next();
 			});						
 			loadRecommend(r);
+
 		});
+
+		//Fixed menu
+		$(window).on("scroll", function(){
+			var y = $(window).scrollTop();
+			if(y>=30){
+				setFixedMenu();
+			}else{
+				removeFixedMenu();
+			}
+		});
+
 		function loadRecommend(num)
 		{
 			rcate = rarray[num];			
@@ -96,6 +108,14 @@
 			else if(r<0)
 				r=3;
 			loadRecommend(r);
+		}
+
+		function setFixedMenu(){
+			$("body").addClass("fixed_menu");
+		}
+
+		function removeFixedMenu(){
+			$("body").removeClass("fixed_menu");
 		}
 	</script>
 </head>
