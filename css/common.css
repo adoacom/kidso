@@ -2772,3 +2772,113 @@ body .ui-tooltip {
  #navcontainer .list_icons img{
  	width: 40px;
  }
+
+ /*
+	EDITOR'S CHOICE
+ */
+
+ .list_editor{
+ 	width: 100%;
+ 	float: left;
+ }
+
+ .list_editor .item{
+ 	width: 100%;
+ 	float: left;
+ 	margin-bottom: 10px;
+ 	border-bottom: 1px #CCC solid;
+ 	padding-bottom: 10px;
+ }
+
+ .list_editor .col_left{
+ 	float: left;
+ 	width: 305px;
+ }
+
+.list_editor .col_left .img_border{
+	border: 1px #333 solid;
+	padding: 3px;
+	width: 299px;
+}
+
+.list_editor .col_left  img{
+	max-width: 100%
+}
+ .list_editor .col_right{
+ 	float: right;
+ 	width: 305px;
+ 	color: #000;
+ 	text-align: left;
+ }
+
+ .list_editor .col_right .title{
+ 	color: #333;
+    font-size: 18px;
+    height: auto;
+    line-height: 25px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+ }
+
+.list_editor .col_right .date{
+  	width: 100%;
+  	float: left;
+  	color: #333;
+  	font-size: 13px;
+  	margin-top: 10px;
+  }
+
+.list_editor .col_right .meta_info{
+ 	width: 100%;
+ 	float: left;
+ 	text-align: left;
+ }
+.list_editor .meta_info span {
+ 	padding: 10px 5px;
+ 	float: left;
+ 	text-align: left;
+ 	color: #333;
+  	font-size: 13px;
+ }
+
+.list_editor .meta_info .fb-share-button{
+	float: left;
+	margin-left: -5px;
+    margin-right: 10px;
+    margin-top: -5px;
+}
+
+.list_editor .col_right .summary{
+	width: 100%;
+	text-align: left;
+	color: #333;
+  	font-size: 13px;
+}
+
+/*
+	RIGHT BAR LIST CATEGORIES
+*/
+#list_cate_menu {
+	width: 100%;
+	float: left;
+	list-style: none;
+	background: #FFF;
+	margin-bottom: 10px;
+	padding: 0;
+}
+
+#list_cate_menu li{
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+#list_cate_menu li img{
+	width: 46px;
+	cursor: pointer;
+}
+
+#recommendBody{
+	float: left;
+	width: 100%
+}

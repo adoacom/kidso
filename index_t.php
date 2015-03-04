@@ -52,7 +52,7 @@
 		$(document).ready(function(){
 			setHeaderUI();
 // 			setBannerUI();
-			setEditorUI();
+//			setEditorUI();
 			setMemberUI();
 		  	setButtonUI();
 		  	setSearchUI();		  	
@@ -62,12 +62,7 @@
 		  	$("#editor_more").click(function() {
 		  		window.location = 'editor.php';
 			});
-		  	$("#recommentprev").click(function() {
-				prev();
-			});			
-		  	$("#recommentnext").click(function() {
-		  		next();
-			});						
+		  				
 			loadRecommend(r);
 
 		});
@@ -90,7 +85,7 @@
 			  .done(function( data ) {
 			    $("#recommendBody").html(data);
 				setRecommendUI();    
-				$("#catename").html(rcate.toUpperCase());
+				//$("#catename").html(rcate.toUpperCase());
 			  });		
 		}
 		function prev(){
@@ -156,16 +151,12 @@
 </div>
  -->
 <div class="divHor">
-<table class="header">
-<tr>
-	<td class="content-left content-Text2 content-baseline"><span id="recommentprev" class="content-orange toLink"><<</span></td>
-	<td class="content-center content-gray content-Text2">5 RECOMMENDATIONS<br>OF <span id="catename">EDUCATION</span></td>
-	<td class="content-right content-Text2 content-baseline"><span id="recommentnext" class="content-orange toLink">>></span></td>
-</tr>
-<tr>
-	<td colspan="3" class="underline"></td>
-</tr>
-</table>
+<ul id="list_cate_menu">
+	<li><img onClick="loadRecommend(0)" src="images/education_icon01.png"></li>
+	<li><img onClick="loadRecommend(1)" src="images/outdoor_icon01.png"></li>
+	<li><img onClick="loadRecommend(2)" src="images/medical_icon01.png"></li>
+	<li><img onClick="loadRecommend(3)" src="images/party_icon01.png"></li>
+</ul>
 <div id="recommendBody"></div>
 </div>
 </div>
