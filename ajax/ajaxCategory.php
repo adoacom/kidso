@@ -6,6 +6,8 @@
 	$category = $_REQUEST['cate'];
 	$district = $_REQUEST['district'];
 	$keyword = $_REQUEST['keyword'];
+	$col = $_REQUEST['col'];
+	$order = $_REQUEST['order'];
 	$limitforPage = 5;
 	$page = 0;
 	if(!empty($_REQUEST['page']))
@@ -49,7 +51,7 @@
 			$search_submit = "../images/party_search.png";			
 		break;
 	}
-	
+	$order_by = " ORDER BY ". $col ." ". $order ." ";
 	$dwhere = "";
 	$cwhere = "";
 	$where = "";
@@ -68,7 +70,7 @@
 	$res = $db->fetchAllBySQL($query,true);
 	$total = abs(count($res) / $limitforPage);	
 	
-	$query = "select * from ".TABLE_PRODUCTION." left join ".TABLE_DISTRICT." ON ".TABLE_DISTRICT.".district_id = ".TABLE_PRODUCTION.".district_id Where ".TABLE_PRODUCTION.".cid in (select cate_id from ".TABLE_CATEGORY." ".$cwhere.") ".$where.$dwhere.$limit;	
+	$query = "select * from ".TABLE_PRODUCTION." left join ".TABLE_DISTRICT." ON ".TABLE_DISTRICT.".district_id = ".TABLE_PRODUCTION.".district_id Where ".TABLE_PRODUCTION.".cid in (select cate_id from ".TABLE_CATEGORY." ".$cwhere.") ".$where.$dwhere.$order_by.$limit;	
 	$res = $db->fetchAllBySQL($query,true);
 
 	for($i=0;$i<count($res);$i++):
@@ -115,7 +117,7 @@
 		$y=$i+1;
 ?>
 	<span <?php if($i==$page){ echo 'class="Bubbleselect"';}else{echo 'class="Bubble toLink" onclick="javascript:getRecord('.$i.');"';}?> ><?php echo $y;?></span>
-<?
+<?php
 	endfor;
 ?>
 </div>

@@ -3,7 +3,7 @@
 	$category = $_REQUEST['cate'];
 	$district = $_REQUEST['district'];
 	$keyword = $_REQUEST['keyword'];
-	
+	$lang = getLang();
 	switch($category){
 		case "education":
 			$search_color = "rgba(65,186,241,1.0)";
@@ -82,19 +82,24 @@
 	<script type="text/javascript" src="js/tooltip.js"></script>
 	<script type="text/javascript" src="js/bootstrap-rating.js"></script>
 	<script>
+		
+		var order = "asc";
+		var col = "pic";	
+		var page = 0 ;
+		var arrow = "up";
 		$(function () {
-// 			$('input.check').on('change', function () {
-// 	          alert('Rating: ' + $(this).val());
-// 	        });
+
 			setHeaderUI();
 			setSearchUI();
-			getRecord(0);
+			getRecord(page,col);
 	      });
 	      function goinfo(id){
 			window.location = 'detail.php?pid='+id;
 			}
+			
+			
 			function getRecord(page){
-				$.post( "ajax/ajaxCategory.php", { page: page, cate: "<?php echo $category;?>", district: "<?php echo $district;?>", keyword: "<?php echo $keyword;?>" })
+				$.post( "ajax/ajaxCategory.php", { col : col , order : order , page: page, cate: "<?php echo $category;?>", district: "<?php echo $district;?>", keyword: "<?php echo $keyword;?>" })
 				  .done(function( data ) {
 				  	$("#categoryDiv").html(data);
 			        $('.rating-tooltip').rating({
@@ -106,7 +111,23 @@
 			          }
 	    		    });				  	
 				});
-			}	
+			}
+			
+			function cateOrder(column){
+				col = column;
+				if(order == "asc"){
+					order="desc";
+					arrow = "down";
+				}else{
+					order = "asc";
+					arrow = "up";
+				}
+				$(".icon_order").hide();
+				$(".icon_order").removeClass("fa-caret-down , fa-caret-up");
+				$("#arrow_"+col).show();
+				$("#arrow_"+col).addClass("fa-caret-"+arrow);
+				getRecord(page);
+			}
 	</script>
 </head>
 <body>
@@ -144,10 +165,10 @@
 <center>
 <table class="cateTable">
 <tr>
-	<td class="content-Text3">IMAGE</td>
-	<td class="content-Text3">NAME</td>
-	<td class="content-Text3">DISTRICT</td>
-	<td class="content-Text3">VALUE</td>
+	<td class="content-Text3" onclick="cateOrder('pic')">IMAGE <i id="arrow_pic" class="icon_order fa fa-caret-up"></i></td>
+	<td class="content-Text3" onclick="cateOrder('name_<?php echo $lang?>')">NAME <i id="arrow_name_<?php echo $lang?>" class="icon_order fa"></i></td>
+	<td class="content-Text3" onclick="cateOrder('district_<?php echo $lang?>')">DISTRICT <i id="arrow_district_<?php echo $lang?>" class="icon_order fa"></i></td>
+	<td class="content-Text3" onclick="cateOrder('pid')">VALUE <i id="arrow_pid" class="icon_order fa"></i></td>
 </tr>
 </table>
 <div id="categoryDiv"></div>
