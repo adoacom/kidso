@@ -9,10 +9,28 @@
 
 .symbol-empty {
   background-color: rgb(224,225,228);
+  margin: 5px;
   padding: 2px;
 }
 
-.symbol-filled {
-  background-color: rgb(254,215,60);
+.symbol-filled,.symbol-filled1,.symbol-filled2,.symbol-filled3,.symbol-filled4 {
+  /*background-color: rgb(254,215,60);*/
+  margin: 5px;
   padding: 2px;
+}
+
+.symbol-filled1{
+  background-color: green;
+}
+
+.symbol-filled2 {
+  background-color: blue;
+}
+
+.symbol-filled3 {
+  background-color: yellow;
+}
+
+.symbol-filled4 {
+  background-color: red;
 }
