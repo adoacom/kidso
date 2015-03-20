@@ -276,19 +276,19 @@
 <table class="voteTable">
 <tr>
 	<th class="content-Text2 content-black">ENVIRONMENT</td>
-	<td><input type="hidden" class="rating-tooltip" data-filled="symbol symbol-filled" data-empty="symbol symbol-empty" value="4"/></td>
+	<td><input type="hidden" class="rating-tooltip" data-filled="symbol symbol-filled1" data-empty="symbol symbol-empty" value="4"/></td>
 </tr>
 <tr>
 	<th class="content-Text2 content-black">FACILITY</td>
-	<td><input type="hidden" class="rating-tooltip" data-filled="symbol symbol-filled" data-empty="symbol symbol-empty" value="3"/></td>
+	<td><input type="hidden" class="rating-tooltip" data-filled="symbol symbol-filled2" data-empty="symbol symbol-empty" value="3"/></td>
 </tr>
 <tr>
 	<th class="content-Text2 content-black">SERVICE</td>
-	<td><input type="hidden" class="rating-tooltip" data-filled="symbol symbol-filled" data-empty="symbol symbol-empty" value="2"/></td>
+	<td><input type="hidden" class="rating-tooltip" data-filled="symbol symbol-filled3" data-empty="symbol symbol-empty" value="2"/></td>
 </tr>
 <tr>
 	<th class="content-Text2 content-black">VALUE</td>
-	<td><input type="hidden" class="rating-tooltip" data-filled="symbol symbol-filled" data-empty="symbol symbol-empty" value="1"/></td>
+	<td><input type="hidden" class="rating-tooltip" data-filled="symbol symbol-filled4" data-empty="symbol symbol-empty" value="1"/></td>
 </tr>
 </table>
 <p></p>
@@ -303,19 +303,19 @@
 <table class="voteTable">
 <tr>
 	<th class="content-Text2 content-black">ENVIRONMENT</td>
-	<td><input type="hidden" id="env" class="rating-tooltip" data-filled="symbol symbol-filled" data-empty="symbol symbol-empty"/></td>
+	<td><input type="hidden" id="env" class="rating-tooltip" data-filled="symbol symbol-filled1" data-empty="symbol symbol-empty"/></td>
 </tr>
 <tr>
 	<th class="content-Text2 content-black">FACILITY</td>
-	<td><input type="hidden" id="fac" class="rating-tooltip" data-filled="symbol symbol-filled" data-empty="symbol symbol-empty"/></td>
+	<td><input type="hidden" id="fac" class="rating-tooltip" data-filled="symbol symbol-filled2" data-empty="symbol symbol-empty"/></td>
 </tr>
 <tr>
 	<th class="content-Text2 content-black">SERVICE</td>
-	<td><input type="hidden" id="ser" class="rating-tooltip" data-filled="symbol symbol-filled" data-empty="symbol symbol-empty"/></td>
+	<td><input type="hidden" id="ser" class="rating-tooltip" data-filled="symbol symbol-filled3" data-empty="symbol symbol-empty"/></td>
 </tr>
 <tr>
 	<th class="content-Text2 content-black">VALUE</td>
-	<td><input type="hidden" id="val" class="rating-tooltip" data-filled="symbol symbol-filled" data-empty="symbol symbol-empty"/></td>
+	<td><input type="hidden" id="val" class="rating-tooltip" data-filled="symbol symbol-filled4" data-empty="symbol symbol-empty"/></td>
 </tr>
 </table>
 <button id="submitBtn" class="search_btn content-Text5 content-bold"/><?php echo autoLang('Submit','Submit');?></button>
