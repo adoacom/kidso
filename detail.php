@@ -23,7 +23,7 @@
 // 		print_r($res);
 		$category = strtolower($res['cate_en']);
 		$res1 = objectToArray(getAvg($pid));
-		print_r($res1);
+	//	print_r($res1);
 	}
 	
 	switch($category){
