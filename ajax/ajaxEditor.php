@@ -58,29 +58,37 @@
 		<td class="content-gray content-center content-Text3 toLink" onclick="javascript:openDiv('cell<?php echo $i;?>');"><?php echo date("F j, Y, g:i a",strtotime($result[$i]['createdate']));?></td>
 		<td class="markImg"><img src="<?php if(in_array($result[$i]['editor_id'], $bookmark)){ echo '../images/editor_marked.png'; }else{ echo '../images/editor_mark.png'; }?>" id="bookmark<?php echo $result[$i]['editor_id'];?>" onclick="javascript:bookmark('<?php echo $result[$i]['editor_id'];?>','bookmark<?php echo $result[$i]['editor_id'];?>');" class="toLink"></td>
 	</tr>
-	</table>	
+	</table>
 	<div id="cell<?php echo $i;?>" class="editorCellDiv content-left content-Text2 content-black">
 	<p></p>
-	<table class="full-width-img content-left userDiv">
-	<tr class="content-gray">
-		<th class="content-center"><span id="Photo"><span class="box circle"><img src="<?php echo $result[$i]['user_img'];?>" class="photo-img"></span></span></th>
-		<td class="content-left content-middle content-orange content-Text5"><span><?php echo $result[$i]['user'];?></span></td>
-	</tr>
-	</table>
-	<p></p>
+<!--	<table class="full-width-img content-left userDiv">-->
+<!--	<tr class="content-gray">-->
+<!--		<th class="content-center"><span id="Photo"><span class="box circle"><img src="--><?php //echo $result[$i]['user_img'];?><!--" class="photo-img"></span></span></th>-->
+<!--		<td class="content-left content-middle content-orange content-Text5"><span>--><?php //echo $result[$i]['user'];?><!--</span></td>-->
+<!--	</tr>-->
+<!--	</table>-->
+        <div class="flexslider">
+            <ul class="slides" id="slide_<?php echo $i; ?>">
+            <?php
+                if(!empty($result[$i]['image'])){
+                    $img = explode(",",$result[$i]['image']);
+                    if(count($img)>0):
+                        for($y=0;$y<count($img);$y++):
+            ?>
+                        <li data-thumb="upload/<?php echo $img[$y];?>">
+                            <a class="example-image-link" href="upload/<?php echo $img[$y];?>">
+                                <img  class="example-image" src="upload/<?php echo $img[$y];?>" class="quarter-width-img">
+                            </a>
+                        </li>
+            <?php
+                        endfor;
+                    endif;
+                }
+                ?>
+            </ul>
+        </div>
+        <p></p>
 	<?php echo autoLang($result[$i]['description_ch'],$result[$i]['description_en']);?>
-	<?php
-		if(!empty($result[$i]['image'])){
-			$img = explode(",",$result[$i]['image']);
-			if(count($img)>0):
-				for($y=0;$y<count($img);$y++):
-	?>
-				<a class="example-image-link" href="upload/<?php echo $img[$y];?>" data-lightbox="example-set<?php echo $i;?>" data-title=""><img  class="example-image" src="upload/<?php echo $img[$y];?>" class="quarter-width-img"></a>
-	<?php
-				endfor;
-			endif;
-		}
-	?>	
 	</div>	
 <?php
 	endfor;
