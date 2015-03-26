@@ -2882,3 +2882,30 @@ body .ui-tooltip {
 	float: left;
 	width: 100%
 }
+
+#load_comment {
+    font-family: 'Montserrat', sans-serif;
+    margin: 20px 0 60px;
+}
+
+.bt_load_comment {
+    border: none;
+    background-color: #EEE;
+    padding: 10px 12px;
+    color: #006FBB;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.bt_load_comment:hover {
+    text-decoration: none;
+}
