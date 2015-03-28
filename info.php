@@ -12,6 +12,14 @@
 	if(empty($votemark['notbad']))
 		$votemark['notbad'] = 0;
 
+    //Get number of comment
+    $db = new DB();
+    $str = "SELECT COUNT(1) as count from ".TABLE_EDITOR_PLUGIN." as comment Left Join ".TABLE_USER." as user on
+    comment.user_id = user.user_id WHERE comment.status<>0 AND comment.user_id = '".
+        $_REQUEST['id']."' Order by comment.createdate DESC";
+    $res = $db->fetchAllBySQL($str,true);
+    $comment_count = $res[0]['count'];
+    $comment_count_str = $comment_count > 1 ? $comment_count . ' comments' : $comment_count . ' comment';
 ?>
 <html lang="en">
 <head>
@@ -67,11 +75,20 @@
     			});
 	    		$(this).css("opacity","0");
 			});
-	        $.get( "ajax/usercomment.php?userid=<?php echo $_REQUEST['id'];?>")
-			  .done(function( data ) {
-			    $("#comment").html(data);
-			    commentUI();    
-			  });
+            $(".bt_load_comment").click(function () {
+                if($(this).attr("comment_count") <= 0) {
+                    return false;
+                }
+                $("#load_comment .bt_load_comment").html("Please wait...");
+                setTimeout(function () {
+                    $.get("ajax/usercomment.php?userid=<?php echo $_REQUEST['id'];?>")
+                        .done(function (data) {
+                            $("#comment").html(data);
+                            commentUI();
+                        });
+                }, 1000);
+                return false;
+            });
 		});
 	</script>
 </head>
@@ -161,7 +178,11 @@
 	<p></p>
 	<div class="underline"></div>
 	<p></p>
-	<div id="comment"></div>
+	<div id="comment">
+        <div id="load_comment">
+            <a class="bt_load_comment" href="#" comment_count="<?php echo $comment_count; ?>"><?php echo $comment_count_str; ?></a>
+        </div>
+    </div>
 </div>
 </div>
 </body>
