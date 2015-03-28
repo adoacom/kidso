@@ -2909,3 +2909,107 @@ body .ui-tooltip {
 .bt_load_comment:hover {
     text-decoration: none;
 }
+
+.social-shares {
+    line-height: 1em;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.social-shares .stats {
+    display: none;
+    vertical-align: bottom;
+    text-transform: uppercase;
+    min-width: 0;
+    padding: 4px 10px 4px 0;
+    height: 36px;
+}
+.social-shares .stats .share-container {
+    line-height: 1.2em;
+    box-sizing: border-box;
+}
+.social-shares .stats .share-container .share-count {
+    text-align: center;
+    color: #006fbb;
+    font-size: 22px;
+    font-weight: bold;
+}
+.social-shares .stats .share-container .share {
+    font-size: 11px;
+    color: #333;
+    text-align: center;
+}
+.social-shares a {
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    min-width: 110px;
+    padding: 0 10px;
+    margin-right: 10px;
+    color: #FFF;
+    font-size: 12px;
+    text-align: center;
+}
+.social-shares a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.social-shares a .fa {
+    font-size: 18px;
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+}
+.social-shares a.google-share {
+    background-color: #CC3732;
+}
+.social-shares a.twitter-retweet {
+    background-color: #55ACEE;
+}
+.social-shares a.pinterest-pin {
+    background-color: #CC2127;
+}
+.social-shares a.facebook-share {
+    background-color: #3B5998;
+}
+.editor_description {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #333332;
+    font-size: 16px;
+    line-height: 26px;
+}
+.editor_info {
+    color: #999;
+    font-size: 11px;
+    margin: 20px 0 30px;
+    text-align: left;
+}
+.editor_info .divider {
+    margin: 0 5px;
+}
+
+/*Comment*/
+.editory_comment {
+    margin: 20px 0 60px;
+}
+.editory_comment .editor_show_comment {
+    border: none;
+    background-color: #EEE;
+    padding: 10px 12px;
+    color: #006FBB;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+    border-color: #eeeeee;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 0px;
+    -webkit-user-select: none;
+}
